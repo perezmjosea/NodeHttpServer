@@ -15,118 +15,107 @@ const code500 = fs.readFileSync(root + "500.html");
 
 // STATICS
 const mainCss = fs.readFileSync(root + "css/main.css"); 
-const mainJs = fs.readFileSync(root + "js/main.js"); 
+const mainJs = fs.readFileSync(root + "js/main.js");
+const logoImg = fs.readFileSync(root + "img/logo.jpg"); 
+const homeBg = fs.readFileSync(root + "img/home-bg.jpg"); 
+const bioBg = fs.readFileSync(root + "img/bio-bg.jpg"); 
+const servicesBg = fs.readFileSync(root + "img/services-bg.jpg");
+const contactBg = fs.readFileSync(root + "img/contact-bg.jpg");
+const profileimg = fs.readFileSync(root + "img/profile-img.png"); 
 
 // Levantar el  servidor
-const server = http.createServer((req, res) => {
-    console.log("Recibiendo Peticiones");
+const server = http.createServer((request, response) => {
+    console.log("Realizando peticiones"); 
 
-    switch(req.url) {
+    switch(request.url) {
         // Html
-        case "/":            
-            res.statusCode = 200;
-            res.setHeader("Content-Type", "text/html");
-            res.end(index);
+        case "/":
+        case "/home":            
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "text/html");
+            response.end(index);
             break;
         case "/bio":
-            res.statusCode = 200;
-            res.setHeader("Content-Type", "text/html");
-            res.end(bio);
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "text/html");
+            response.end(bio);
             break;
         case "/services":
-            res.statusCode = 200;
-            res.setHeader("Content-Type", "text/html");
-            res.end(services);
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "text/html");
+            response.end(services);
             break;
         case "/contact":
-            res.statusCode = 200;
-            res.setHeader("Content-Type", "text/html");
-            res.end(contact);
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "text/html");
+            response.end(contact);
             break;
         case "/404":
-            res.statusCode = 404;
-            res.setHeader("Content-Type", "text/html");
-            res.end(code404);
+            response.statusCode = 404;
+            response.setHeader("Content-Type", "text/html");
+            response.end(code404);
             break;
         case "/500":
-            res.statusCode = 500;
-            res.setHeader("Content-Type", "text/html");
-            res.end(code500);
+            response.statusCode = 500;
+            response.setHeader("Content-Type", "text/html");
+            response.end(code500);
             break;  
 
         // Statics
         case "/css/main.css":
-            res.statusCode = 200;
-            res.setHeader("Content-Type", "text/css");
-            res.end(mainCss, "utf-8");
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "text/css");
+            response.end(mainCss, "utf-8");
+            break;
         case "/js/main.js":
-            res.statusCode = 200;
-            res.setHeader("Content-Type", "text/javascript");
-            res.end(mainJs, "utf-8");
-
-        default:
-            res.statusCode = 404;
-            res.setHeader("Content-Type", "text/html");
-            res.end(code404);
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "text/javascript");
+            response.end(mainJs, "utf-8");
+            break;
+        case "/img/logo.jpg":
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "img/jpg");
+            response.end(logoImg, "binary");
+            break;
+        case "/img/home-bg.jpg":
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "img/jpg");
+            response.end(homeBg, "binary");
+            break;
+        case "/img/bio-bg.jpg":
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "img/jpg");
+            response.end(bioBg, "binary");
+            break;
+        case "/img/services-bg.jpg":
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "img/jpg");
+            response.end(servicesBg, "binary");
+            break;
+        case "/img/contact-bg.jpg":
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "img/jpg");
+            response.end(contactBg, "binary");
+            break;
+        case "/img/profile-img.png":
+            response.statusCode = 200;
+            response.setHeader("Content-Type", "img/png");
+            response.end(profileimg, "binary");
             break;
 
-        // STATICS
-
-
-
-
-        // case "/":
-        //     res.statusCode = 200;
-        //     res.setHeader("Content-Type", "text/plain");
-        //     res.end("Welcome to root");
-        //     break;
-        // case "/clase":
-        //     res.statusCode = 200;
-        //     res.setHeader("Content-Type", "text/plain");
-        //     res.end("Hola Clase S56'");
-        //     break;
-        // case "/html":
-        //     res.statusCode = 200;
-        //     res.setHeader("Content-Type", "text/html");
-        //     res.write("<div>");
-        //     res.write("<h1>Hola con HTML</h1>");
-        //     res.write("<p>Visita la web de la escuela</p>");
-        //     res.write("<a href='http://cice.es'>CICE</a>");
-        //     res.write("</div>");
-        //     res.end();
-        //     break;
-        // case "/image":
-        //     const file = fs.readFileSync("./img/cice-logo.jpg");
-        //     res.statusCode = 200;
-        //     res.setHeader("Content-Type", "image/jpg");
-        //     res.end(file, "binary");
-        //     break;
-        // case "/html-file":
-        //     const html = fs.readFileSync("./html/bio.html");
-        //     res.statusCode = 200;
-        //     res.setHeader("Content-Type", "text/html");
-        //     res.end(html);
-        //     break;
-        // default:
-        //     res.statusCode = 404;
-        //     res.setHeader("Content-Type", "text/plain");
-        //     res.end("Esa URL no existe");
-        //     break;
+        // Default
+        default:
+            response.statusCode = 404;
+            response.setHeader("Content-Type", "text/html");
+            response.end(code404);
+            break;
     }
 
 })
 // Cualquier Interface
 // server.listen(3000, "0.0.0.0", () => {
 // LocalHost
-server.listen(3000, "127.0.0.1", () => {
-    console.log("Server running at Port:3000")
-
-    // const options = {
-    //     port: 3000,
-    //     hostname: "127.0.0.1",
-    //     headers: {
-    //         "Conection": "Upgrade",
-    //         "Upgrade": "Websocket"
-    //     }
-    // }
+// server.listen(3000, "127.0.0.1", () => {
+server.listen(3000, "0.0.0.0", () => {
+    console.log("Server running at Port:3000");
 })

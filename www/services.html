@@ -5,26 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
+    
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
 <body class="services">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="home">
+            <img src="img/logo.jpg" class="logo">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="home">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="bio">Bio</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="services">Services</a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="services">Services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact</a>
@@ -32,11 +37,77 @@
             </ul>
         </div>
     </nav>
+    <main class="container-fluid">
+        <div class="container content">
+            <h1 class="title">
+                SERVICIOS
+            </h1>
+            <div class="row">
+                <div class="col-12 col-sm-2 col-md-3">
+                    <div class="service">
+                        <div class="service-title">
+                            <h2 class="subtitle">
+                                Diseño y Desarrollo
+                            </h2>
+                        </div>
+                        <div class="service-text">
+                            <p class="text">
+                                Una web corporativa es la carta de presentación de tu negocio en Internet.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-2 col-md-3">
+                    <div class="service">
+                        <div class="service-title">
+                            <h2 class="subtitle">
+                                Marketing de contenidos
+                            </h2>
+                        </div>
+                        <div class="service-text">
+                            <p class="text">
+                                Blogs,  newsletters, infografías, vídeos corporativos, ebooks…
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-2 col-md-3">
+                    <div class="service">
+                        <div class="service-title">
+                            <h2 class="subtitle">
+                                SEM y SEO
+                            </h2>
+                        </div>
+                        <div class="service-text">
+                            <p class="text">
+                                Una buena estrategia dentro de tu plan de Marketing Digital.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-2 col-md-3">
+                    <div class="service">
+                            <div class="service-title">
+                                <h2 class="subtitle">
+                                    Social Media
+                                </h2>
+                            </div>
+                            <div class="service-text">
+                                <p class="text">
+                                    Si tus clientes están en las redes sociales tu empresa también debe estar en ellas.
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>
